@@ -1,10 +1,7 @@
 package br.com.glesioss.projetodb.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,8 @@ public class Endereco extends EntidadeAbstrata{
     private String logradouro;
     private String bairro;
     private String cidade;
+
+    @Column(columnDefinition = "CHAR(2) default 'PI'")
     private String estado;
 
     @JsonIgnore
