@@ -1,5 +1,6 @@
 package br.com.glesioss.projetodb.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -25,6 +26,7 @@ public class Endereco extends EntidadeAbstrata{
     private String cidade;
     private String estado;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
