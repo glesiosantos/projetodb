@@ -16,7 +16,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categoria")
+@Table(name = "pedidos")
 public class Pedido extends EntidadeAbstrata {
 
     @ManyToOne
@@ -26,6 +26,8 @@ public class Pedido extends EntidadeAbstrata {
     @CreatedDate
     @Column(name = "dt_pedido", columnDefinition = "TIMESTAMP default 'now()'")
     private Instant dataPedido;
+
+    private String status;
 
     @Column(name = "total")
     private Double totalPedido;

@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categoria")
+@Table(name = "categorias")
 public class Categoria extends EntidadeAbstrata {
 
     @Column(name = "nome", unique = true, length = 60)
