@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  ms-project:
+    image: ms-project
+    environment:
+      spring.profiles.active: test
+    ports:
+      - "5000:5000"
+  pgadmin:
+    image: pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - dcs-postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: 102030
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+  db:
+    restart: always
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 102030
+      POSTGRES_DB: banco_delivery_example
